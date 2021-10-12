@@ -1,13 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter,Route,Switch } from 'react-router-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+//Componentes importados
+import Navbar from './components/Navbar/Navbar';
+import CompanyForm from './components/company/CompanyForm';
+import CompanyList from './components/company/CompanyList';
+
+import "bootstrap/dist/css/bootstrap.min.css"
+
+
+
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+  <Navbar/> 
+    <div className="container my-4">
+      <Switch>
+        <Route exact path="/" component={CompanyList}/>
+       <Route path="/CompanyForm" component={CompanyForm}/>
+      </Switch>
+    </div>
+  </BrowserRouter>,
+
   document.getElementById('root')
 );
 
