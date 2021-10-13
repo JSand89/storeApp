@@ -17,10 +17,12 @@ const CompanyList = () => {
             const data= await res.json();
             console.log(data)
             setMercatodo(data);
+
         } catch (error) {
             console.log(error);
         }
     };    
+
 
     useEffect(() => {
         listCompanies();
@@ -28,19 +30,20 @@ const CompanyList = () => {
 
     /*
     return (
-        <div>  
+        <div className="row">  
             {companies.map((company) => (
         <CompanyItem key={company.id} company={company} listCompanies={listCompanies} />
       ))}
         </div>
-    );
+    );                  
     */
 
-    return (
+     return (
         <div className="row">  
+        {console.log(mercatodo,'a')}
             <CompanyItem mercatodo={mercatodo}/>
         </div>
-    );
+     );
 };
 
 export default CompanyList;

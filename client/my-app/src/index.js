@@ -22,6 +22,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={CompanyList}/>
        <Route path="/CompanyForm" component={CompanyForm}/>
+       <Route path="/updateCompany/:id" component={CompanyForm}/>
       </Switch>
     </div>
   </BrowserRouter>,
