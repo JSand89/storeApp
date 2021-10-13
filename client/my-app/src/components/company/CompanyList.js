@@ -37,14 +37,18 @@ const CompanyList = () => {
         </div>
     );                  
     */
-    if(mercatodo!= '')  {
+    if(mercatodo!== '')  {
+
         return (
 
             <div className="row">  
             {console.log(mercatodo,'a')}
-            {/* {mercatodo.map(item=><CompanyItem props={item} key={item.producto.id}/>)} */}
+            {mercatodo.productos.map(product=><CompanyItem mercatodo={product} key={product.prod_id}/> )}
 
-                <CompanyItem mercatodo={mercatodo}/>
+             {/* {mercatodo.productos.map(item=><CompanyItem props={item} />)}  */}
+
+                {/* <CompanyItem mercatodo={mercatodo}/> */}
+
             </div>
          );
 
