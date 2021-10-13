@@ -9,7 +9,7 @@ import * as CompanyServer from './CompanyServer';
 
 const CompanyList = () => {
 
-    const[mercatodo,setMercatodo]=useState([]);
+    const[mercatodo,setMercatodo]=useState('');
 
     const listCompanies= async ()=>{
         try {
@@ -37,13 +37,23 @@ const CompanyList = () => {
         </div>
     );                  
     */
+    if(mercatodo!= '')  {
+        return (
 
-     return (
-        <div className="row">  
-        {console.log(mercatodo,'a')}
-            <CompanyItem mercatodo={mercatodo}/>
-        </div>
-     );
+            <div className="row">  
+            {console.log(mercatodo,'a')}
+            {/* {mercatodo.map(item=><CompanyItem props={item} key={item.producto.id}/>)} */}
+
+                <CompanyItem mercatodo={mercatodo}/>
+            </div>
+         );
+
+
+    }  else{
+      return(<div/>)
+    }        
+
+     
 };
 
 export default CompanyList;

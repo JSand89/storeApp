@@ -48,10 +48,23 @@ const CompanyForm=()=> {
         }
     };
 
+    // const API = 'https://safe-river-82717.herokuapp.com'
+    
+    // const getProducts=async()=>{
+    //     const res=await fetch (API)
+    //     const data=await res.json()
+    //     console.log("Data productos ")
+    //     console.log(data)
+    // }
+
+    //getProducts()   
+
+
     useEffect(()=> {
         if (params.id){
             getCompany(params.id);
-        }
+           
+        }        
     },[]);
 
 
