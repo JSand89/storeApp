@@ -1,6 +1,6 @@
 import React from "react";
 import {useHistory} from "react-router-dom";
-
+import { useEffect } from "react";
 import * as CompanyServer from './CompanyServer';
 
 
@@ -14,8 +14,8 @@ const CompanyItem=({mercatodo}) =>{
        await CompanyServer.deleteCompany(prodId);
        console.log(prodId);
 
-        //listCompanies() 
-
+       CompanyServer.listCompanies() 
+        
     }; 
    
     // useEffect(() => {

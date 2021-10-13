@@ -40,7 +40,7 @@ const CompanyList = () => {
     if(mercatodo!== '')  {
 
         return (
-
+                    
             <div className="row">  
             {console.log(mercatodo,'a')}
             {mercatodo.productos.map(product=><CompanyItem mercatodo={product} key={product.prod_id}/> )}
