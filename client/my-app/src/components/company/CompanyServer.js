@@ -18,13 +18,14 @@ export const getCompany = async(companyId) =>{
 export const registerCompany = async (newCompany) =>{
     return await fetch(API_URL,{
         method:'POST',
-        Headers:{
-            'Content-Type':'application/json'
-        },
+       
+       
         bady:JSON.stringify({
-            "name":String(newCompany.name).trim(),
-            "foundation":parseInt(newCompany.foundation),
-            "webside":String(newCompany.webside).trim(),
+            "prod_name":String(newCompany.prod_name).trim(),
+            "prod_category":String(newCompany.prod_category).trim(),
+            "prod_description":String(newCompany.prod_description).trim(),
+            "prod_name":String(newCompany.prod_name).trim(),
+            "prod_provider":String(newCompany.prod_provider).trim(),
         })
     });
 

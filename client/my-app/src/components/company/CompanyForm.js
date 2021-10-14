@@ -7,19 +7,19 @@ const CompanyForm=()=> {
     const history =useHistory();
     const params = useParams();
 
-    const initialState={Category:"",date:"",Description:"",Existences:"",name:"",provider:""};
+    const initialState={prod_category:"",prod_description:"",prod_existences:0,prod_name:"",prod_provider:""};
     const[company,setCompany]=useState(initialState);
 
     const handleInputChange=(e)=>{
-        //console.log(e.target.name);
-        console.log(e.target.value);
-
-        //setCompany({...company,[e.target.name]:e.target.value});
+        console.log(e.target.name,'name');
+        console.log(e.target.value,'value');
+        console.log(company,'company')
+        setCompany({...company,[e.target.name]:e.target.value});
     };
 
     const handleSubmit = async (e)=>{
         e.preventDefault();
-        console.log(e);
+        //console.log(e);
 
         try{
             let res;
@@ -39,9 +39,9 @@ const CompanyForm=()=> {
     // modo de actualizacion,getComany lee los datos de la compañia 
     const getCompany= async(companyId) =>{
         try{
-            const res= await CompanyServer.getCompany(companyId);
+            const res= await CompanyServer.getCompany(company.prod_Id);
             const data =await res.json();
-            const{id,Category,date,Description,Existences,name,provider}=data.company;
+            const{prod_id,prod_category,prod_date,prod_description,prod_existences,prod_name,prod_provider}=data.company;
             console.log(data);
         }catch(error){
             console.log(error);
@@ -60,12 +60,12 @@ const CompanyForm=()=> {
     //getProducts()   
 
 
-    // // useEffect(()=> {
-    //     if (params.id){
-    //         getCompany(params.id);
+    useEffect(()=> {
+        if (params.id){
+            getCompany(params.id);
            
-    //     }        
-    // },[]);
+        }        
+    },[]);
 
 
 
@@ -79,35 +79,30 @@ const CompanyForm=()=> {
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label className="form-label">Nombre</label>
-                    <input type="text" name="name" value={company.id} onChange={handleInputChange} className="form-control" minLength="2" maxLength="50" autoFocus required/> 
+                    <input type="text" name="prod_name" value={company.id} onChange={handleInputChange} className="form-control" minLength="2" maxLength="50" autoFocus required/> 
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Category</label>
-                    <input type="text" name="foundation" value={company.id}  onChange={handleInputChange} className="form-control"   />
+                    <input type="text" name="prod_category" value={company.id}  onChange={handleInputChange} className="form-control"   />
                 </div>
                 <div className="mb-3 ">
                     <label className="form-label"> date</label>
-                    <input type="date" name="website"  value={company.id}  onChange={handleInputChange} className="form-control" maxLength="100" />
+                    <input type="date" name="prod_date"  value={company.id}  onChange={handleInputChange} className="form-control" maxLength="100" />
                 </div>
 
                 <div className="mb-3 ">
                     <label className="form-label">Description</label>
-                    <input type="text" name="website"  value={company.id}  onChange={handleInputChange} className="form-control" maxLength="100" />
+                    <input type="text" name="prod_description"  value={company.id}  onChange={handleInputChange} className="form-control" maxLength="100" />
                 </div>
 
                 <div className="mb-3 ">
                     <label className="form-label"> Existences</label>
-                    <input type="number" name="website"  value={company.id}  onChange={handleInputChange} className="form-control" maxLength="100" />
-                </div>
-
-                <div className="mb-3 ">
-                    <label className="form-label"> name  </label>
-                    <input type="text" name="website"  value={company.id}  onChange={handleInputChange} className="form-control" maxLength="100" />
+                    <input type="number" name="prod_existences"  value={company.id}  onChange={handleInputChange} className="form-control" maxLength="100" />
                 </div>
 
                 <div className="mb-3 ">
                     <label className="form-label">provider</label>
-                    <input type="text" name="website"  value={company.id}  onChange={handleInputChange} className="form-control" maxLength="100"/>
+                    <input type="text" name="pro_provider"  value={company.id}  onChange={handleInputChange} className="form-control" maxLength="100"/>
                 </div>
 
                  <div className="d-grid gap-2"> 
